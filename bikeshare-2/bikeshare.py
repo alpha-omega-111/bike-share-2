@@ -9,7 +9,7 @@ def get_filters():
     """
     Description: Function applies filters depending on the city, month, and day of the week
 
-    Asks user to specify a city, month, and day to analyze.
+    Input required: Asks user to specify a city, month, and day to analyze.
 
     Returns:
         (str) city - name of the city to analyze
