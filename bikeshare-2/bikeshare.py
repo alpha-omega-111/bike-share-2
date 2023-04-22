@@ -128,11 +128,11 @@ def time_stats(df):
 
     # display the most common month
     try:
-        common_month_df = df['month'].value_counts().head(1)
-        common_month = common_month_df.index[0]
-        comm_month_count = common_month_df.iloc[0]
+        comm_month_df = df['month'].value_counts().head(1)
+        common_month = comm_month_df.index[0]
+        comm_month_count = comm_month_df.iloc[0]
         print(common_month)
-        print(f"The most common month is {common_month} with {comm_month_count} records")
+        print(f"The most common month is {common_month}, with {comm_month_count} records")
     except Exception as e:
         # TODO if month filter on, calculation not applicable
         print(f"Data set filtered,{e} most common month on a filtered df not applicable")
@@ -161,7 +161,7 @@ def time_stats(df):
         common_hour = common_hour_df.index[0]
         common_hour_count = common_hour_df.iloc[0]
         print(common_hour_df)
-        print(f"The most common start hour is {common_hour}hrs with {common_hour_count} records")
+        print(f"The most common start hour is {common_hour}hrs, with {common_hour_count} records")
     except Exception as e:
         print(f"Data set filtered,error:{e}")
         pass
