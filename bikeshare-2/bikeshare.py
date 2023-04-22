@@ -95,8 +95,6 @@ def load_data(city, month, day):
     print(f"Number of NaN is {no_nan}")
     print("="*40)
 
-
-
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df["Start Time"])
 
@@ -125,6 +123,7 @@ def load_data(city, month, day):
             df = df[df['day_of_week'] == day]
 
     print(df)
+    print("=" * 40)
     return df
 
 
@@ -136,11 +135,11 @@ def time_stats(df):
 
     # display the most common month
     try:
-        common_month_df = df['month'].value_counts().head(1)
-        common_month = common_month_df.index[0]
-        comm_month_count = common_month_df.iloc[0]
+        comm_month_df = df['month'].value_counts().head(1)
+        common_month = comm_month_df.index[0]
+        comm_month_count = comm_month_df.iloc[0]
         print(common_month)
-        print(f"The most common month is {common_month} with {comm_month_count} records")
+        print(f"The most common month is {common_month}, with {comm_month_count} records")
     except Exception as e:
         # TODO if month filter on, calculation not applicable
         print(f"Data set filtered,{e} most common month on a filtered df not applicable")
@@ -154,10 +153,12 @@ def time_stats(df):
         common_day_count = common_day_df.iloc[0]
         print(common_day_df)
         print(f"The most common day of the week is {common_day} with {common_day_count} records")
+        print("-" * 20)
 
     except Exception as e:
         # TODO discuss: if month filter on, calculation not applicable
         print(f"Data set filtered,{e} most common day on a filtered df not applicable")
+        print("-" * 20)
         pass
 
     # display the most common start hour
@@ -167,13 +168,13 @@ def time_stats(df):
         common_hour = common_hour_df.index[0]
         common_hour_count = common_hour_df.iloc[0]
         print(common_hour_df)
-        print(f"The most common start hour is {common_hour}hrs with {common_hour_count} records")
+        print(f"The most common start hour is {common_hour}hrs, with {common_hour_count} records")
     except Exception as e:
         print(f"Data set filtered,error:{e}")
         pass
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('='*40)
 
 
 def station_stats(df):
